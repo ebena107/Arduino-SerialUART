@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Arduino SerialUART (Package)", "Arduino SerialUART\Arduino SerialUART (Package)\Arduino SerialUART (Package).wapproj", "{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino SerialUART", "Arduino SerialUART\Arduino SerialUART\Arduino SerialUART.csproj", "{FAC7F192-5CFD-4B78-9B70-E31E830EC326}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|arm64 = Debug|arm64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|arm64 = Release|arm64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|arm64.ActiveCfg = Debug|arm64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|arm64.Build.0 = Debug|arm64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|arm64.Deploy.0 = Debug|arm64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|x64.ActiveCfg = Debug|x64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|x64.Build.0 = Debug|x64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|x64.Deploy.0 = Debug|x64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|x86.ActiveCfg = Debug|x86
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|x86.Build.0 = Debug|x86
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Debug|x86.Deploy.0 = Debug|x86
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|arm64.ActiveCfg = Release|arm64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|arm64.Build.0 = Release|arm64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|arm64.Deploy.0 = Release|arm64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|x64.ActiveCfg = Release|x64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|x64.Build.0 = Release|x64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|x64.Deploy.0 = Release|x64
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|x86.ActiveCfg = Release|x86
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|x86.Build.0 = Release|x86
+		{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}.Release|x86.Deploy.0 = Release|x86
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Debug|arm64.ActiveCfg = Debug|arm64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Debug|arm64.Build.0 = Debug|arm64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Debug|x64.ActiveCfg = Debug|x64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Debug|x64.Build.0 = Debug|x64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Debug|x86.ActiveCfg = Debug|x86
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Debug|x86.Build.0 = Debug|x86
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Release|arm64.ActiveCfg = Release|arm64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Release|arm64.Build.0 = Release|arm64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Release|x64.ActiveCfg = Release|x64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Release|x64.Build.0 = Release|x64
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Release|x86.ActiveCfg = Release|x86
+		{FAC7F192-5CFD-4B78-9B70-E31E830EC326}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D2B42A6-AD91-4F8C-9852-78603CB9893E}
+	EndGlobalSection
+EndGlobal
