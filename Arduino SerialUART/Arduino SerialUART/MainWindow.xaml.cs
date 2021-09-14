@@ -86,7 +86,7 @@ namespace Arduino_SerialUART
         }
 
         /// <summary>
-        /// comPortInput_Click: Action to take when 'Connect' button is clicked
+        /// OnConnect: Action to take when 'Connect' button is clicked
         /// - Get the selected device index and use Id to create the SerialDevice object
         /// - Configure default settings for the serial port
         /// - Create the ReadCancellationTokenSource token
@@ -189,7 +189,7 @@ namespace Arduino_SerialUART
         }
 
         /// <summary>
-        /// sendTextButton_Click: Action to take when 'WRITE' button is clicked
+        /// BtnSend_Click: Action to take when 'WRITE' button is clicked
         /// - Create a DataWriter object with the OutputStream of the SerialDevice
         /// - Create an async task that performs the write operation
         /// </summary>
