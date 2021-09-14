@@ -8,6 +8,20 @@
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
                 <!-- Other merged dictionaries here -->
+                <ResourceDictionary>
+                    <ResourceDictionary.ThemeDictionaries>
+                        <ResourceDictionary x:Key="Dark">
+                            <Brush x:Key="MyBrush">White</Brush>
+                        </ResourceDictionary>
+                        <ResourceDictionary x:Key="Light">
+                            <Brush x:Key="MyBrush">Black</Brush>
+                        </ResourceDictionary>
+                        <ResourceDictionary x:Key="HighContrast">
+                            <Brush x:Key="MyBrush">Black</Brush>
+                        </ResourceDictionary>
+                    </ResourceDictionary.ThemeDictionaries>
+
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->
         </ResourceDictionary>
