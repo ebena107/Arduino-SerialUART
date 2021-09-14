@@ -9,11 +9,11 @@
   <Identity
     Name="0cfb889d-55f5-436a-9866-38e14c24639c"
     Publisher="CN=Olayide"
-    Version="1.0.0.0" />
+    Version="0.0.1.0" />
 
   <Properties>
     <DisplayName>Arduino SerialUART (Package)</DisplayName>
-    <PublisherDisplayName>Olayide</PublisherDisplayName>
+    <PublisherDisplayName>Ebena Agro Ltd</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -36,7 +36,7 @@
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="Ebena Arduino SerialUART" Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
         <uap:SplashScreen Image="Images\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
@@ -44,10 +44,13 @@
 
   <Capabilities>
     <rescap:Capability Name="runFullTrust" />
+    <Capability Name="internetClient"/>
     <DeviceCapability Name="serialcommunication">
       <Device Id="any">
         <Function Type="name:serialPort" />
       </Device>
     </DeviceCapability>
+    <DeviceCapability Name="bluetooth"/>
+    <DeviceCapability Name="proximity"/>
   </Capabilities>
 </Package>

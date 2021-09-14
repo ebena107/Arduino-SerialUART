@@ -5,7 +5,17 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Arduino SerialUART (Package)", "Arduino SerialUART\Arduino SerialUART (Package)\Arduino SerialUART (Package).wapproj", "{EDDF41E9-9395-4EE8-8ED3-E2619A5750AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino SerialUART", "Arduino SerialUART\Arduino SerialUART\Arduino SerialUART.csproj", "{FAC7F192-5CFD-4B78-9B70-E31E830EC326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arduino SerialUART", "Arduino SerialUART\Arduino SerialUART\Arduino SerialUART.csproj", "{FAC7F192-5CFD-4B78-9B70-E31E830EC326}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arduino Sketch", "Arduino Sketch", "{F0F702D4-8A5B-4007-82AE-7C0AB8E9ABF5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Documents\Arduino\serialUART\serialUART.ino = ..\..\..\Documents\Arduino\serialUART\serialUART.ino
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{34356B34-92D6-456B-B488-483EEA223E81}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Documents\Arduino\computer_serial_control\app.png = ..\..\..\Documents\Arduino\computer_serial_control\app.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
