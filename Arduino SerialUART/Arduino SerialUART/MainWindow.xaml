@@ -8,15 +8,16 @@
 	mc:Ignorable="d">
 
 
-	<SplitView x:Name="splitView"
+    <SplitView x:Name="splitView"
 		Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 		IsPaneOpen="False"
 		PanePlacement="Right"
 		OpenPaneLength="300"
 		CompactPaneLength="96"
 		DisplayMode="Overlay">
+       
 
-		<SplitView.Pane>
+        <SplitView.Pane>
 			<Grid >
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto" />
@@ -46,17 +47,25 @@
 					<TextBlock Style="{StaticResource TitleTextBlockStyle}"
 						Margin="0,4,0,0"
 						FontWeight="Normal"
-						Text="Show Modules" />
+						Text="App Wiki" />
 					<Button Grid.Column="4" Content="Display" Click="OnAbout" />
 				</StackPanel>
 				<StackPanel HorizontalAlignment="Left" Grid.Row="3" Spacing="10" Padding="20">
 
 					<TextBlock Style="{StaticResource TitleTextBlockStyle}"
 						Margin="0,4,0,0"
-						Text="About Ebenatek" />
-					<Button Content="Share" />
+						Text="About EbenaTech" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <Button  Margin="10" ToolTipService.ToolTip="About Ebena Agro Ltd" Click="OnAbout">
+                            <SymbolIcon Symbol="Admin"  />
+                        </Button>
+                        <Button  Margin="10">
+                            <SymbolIcon Symbol="Share" ToolTipService.ToolTip="Share"/>
+                        </Button>
+                    </StackPanel>
+                   
 
-				</StackPanel>
+                </StackPanel>
 			</Grid>
 		</SplitView.Pane>
 

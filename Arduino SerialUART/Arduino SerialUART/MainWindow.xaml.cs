@@ -227,7 +227,18 @@ namespace Arduino_SerialUART
             }
         }
 
-
+        /// <summary>
+        /// TxtSend: Action when enter key is pressed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TxtSend_KeyDown(object sender, Microsoft.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                BtnSend_Click(sender, e);
+            }
+        }
 
         /// <summary>
         /// WriteAsync: Task that asynchronously writes data from the input text box 'sendText' to the OutputStream
@@ -404,6 +415,11 @@ namespace Arduino_SerialUART
             }
         }
 
+        /// <summary>
+        /// ConnectMe: Action of Connect/Disconnect Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConnectMe(object sender, RoutedEventArgs e)
         {
             if (BtnConnect.Content.ToString() == "Disconnect")
@@ -416,11 +432,93 @@ namespace Arduino_SerialUART
             }
         }
 
+
+        /// <summary>
+        /// Refresh button action
+        /// </summary>
         private void UpdateDevices()
         {
             cmbPortName.Items.Clear();
             ListAvailablePorts();
         }
+
+  
+
+
+        private void OnPaneOpened(SplitView sender, object args)
+        {
+            string currentTheme = sender.RequestedTheme == ElementTheme.Default ? App.Current.RequestedTheme.ToString() : sender.RequestedTheme.ToString();
+            themePanel.Children.Cast<RadioButton>().FirstOrDefault(c => c?.Tag?.ToString() == currentTheme).IsChecked = true;
+
+        }
+        private void OnAbout(object sender, RoutedEventArgs e)
+        {
+            splitView.IsPaneOpen = false;
+        }
+
+        private void OnSettings(object sender, RoutedEventArgs e)
+        {
+            splitView.IsPaneOpen = !splitView.IsPaneOpen;
+        }
+
+        private void OnThemeRadioButtonChecked(object sender, RoutedEventArgs e)
+        {
+            string selectedTheme = ((RadioButton)sender)?.Tag?.ToString();
+            if (selectedTheme != null)
+            {
+                ((sender as RadioButton).XamlRoot.Content as SplitView).RequestedTheme = GetEnum<ElementTheme>(selectedTheme);
+            }
+        }
+
+        private void OnHelp(object sender, RoutedEventArgs e)
+        {
+            teachingTip.Target = TxtSend;
+            teachingTip.Title = "Serial Port Board";
+            teachingTip.Subtitle = "Select and set Serial Port, Connect, type message and presss end";
+            teachingTip.IsOpen = true;
+        }
+
+        private static TEnum GetEnum<TEnum>(string text) where TEnum : struct
+        {
+            if (!typeof(TEnum).GetTypeInfo().IsEnum)
+            {
+                throw new InvalidOperationException("Generic parameter 'TEnum' must be an enum.");
+            }
+            return (TEnum)Enum.Parse(typeof(TEnum), text);
+        }
+
+        private void RefreshPorts(object sender, RoutedEventArgs e)
+        {
+            UpdateDevices();
+        }
+
+        private void DisableSettings()
+        {
+            cmbPortName.IsEnabled = false;
+            cmbPortBaudRate.IsEnabled = false;
+            cmbPortParity.IsEnabled = false;
+            cmbPortDataBits.IsEnabled = false;
+            cmbPortStopBits.IsEnabled = false;
+            BtnRefresh.IsEnabled = false;
+            TxDataGrid.Visibility = Visibility.Visible;
+        }
+        private void EnableSettings()
+        {
+            cmbPortName.IsEnabled = true;
+            cmbPortBaudRate.IsEnabled = true;
+            cmbPortParity.IsEnabled = true;
+            cmbPortDataBits.IsEnabled = true;
+            cmbPortStopBits.IsEnabled = true;
+            BtnRefresh.IsEnabled = true;
+            TxDataGrid.Visibility = Visibility.Collapsed;
+        }
+
+
+/// <summary>
+/// ChangeLed: Response to data recieved to change status of Led
+/// </summary>
+/// <param name="data"></param>
+
 
         private void ChangeLed(string data)
         {
@@ -515,6 +613,11 @@ namespace Arduino_SerialUART
                 }
             }
         }
+
+        /// <summary>
+        /// LEDON: routine for switcing LED status ellipse OM
+        /// </summary>
+        /// <param name="data"></param>
         private void LedOn(string data)
         {
             _ = data.Split();
@@ -524,6 +627,11 @@ namespace Arduino_SerialUART
 
             el.Fill = new SolidColorBrush(Microsoft.UI.Colors.Green);
         }
+
+        /// <summary>
+        /// LEDOFF: routine for switcing LED status ellipse OFF
+        /// </summary>
+        /// <param name="data"></param>
         private void LedOff(string data)
         {
             _ = data.Split();
@@ -594,83 +702,6 @@ namespace Arduino_SerialUART
         }
 
 
-
-
-        private void OnPaneOpened(SplitView sender, object args)
-        {
-            string currentTheme = sender.RequestedTheme == ElementTheme.Default ? App.Current.RequestedTheme.ToString() : sender.RequestedTheme.ToString();
-            themePanel.Children.Cast<RadioButton>().FirstOrDefault(c => c?.Tag?.ToString() == currentTheme).IsChecked = true;
-
-        }
-        private void OnAbout(object sender, RoutedEventArgs e)
-        {
-            splitView.IsPaneOpen = false;
-        }
-
-        private void OnSettings(object sender, RoutedEventArgs e)
-        {
-            splitView.IsPaneOpen = !splitView.IsPaneOpen;
-        }
-
-        private void OnThemeRadioButtonChecked(object sender, RoutedEventArgs e)
-        {
-            string selectedTheme = ((RadioButton)sender)?.Tag?.ToString();
-            if (selectedTheme != null)
-            {
-                ((sender as RadioButton).XamlRoot.Content as SplitView).RequestedTheme = GetEnum<ElementTheme>(selectedTheme);
-            }
-        }
-
-        private void OnHelp(object sender, RoutedEventArgs e)
-        {
-            teachingTip.Target = TxtSend;
-            teachingTip.Title = "Serial Port Board";
-            teachingTip.Subtitle = "Select and set Serial Port, Connect, type message and presss end";
-            teachingTip.IsOpen = true;
-        }
-
-        private static TEnum GetEnum<TEnum>(string text) where TEnum : struct
-        {
-            if (!typeof(TEnum).GetTypeInfo().IsEnum)
-            {
-                throw new InvalidOperationException("Generic parameter 'TEnum' must be an enum.");
-            }
-            return (TEnum)Enum.Parse(typeof(TEnum), text);
-        }
-
-        private void RefreshPorts(object sender, RoutedEventArgs e)
-        {
-            UpdateDevices();
-        }
-
-        private void DisableSettings()
-        {
-            cmbPortName.IsEnabled = false;
-            cmbPortBaudRate.IsEnabled = false;
-            cmbPortParity.IsEnabled = false;
-            cmbPortDataBits.IsEnabled = false;
-            cmbPortStopBits.IsEnabled = false;
-            BtnRefresh.IsEnabled = false;
-            TxDataGrid.Visibility = Visibility.Visible;
-        }
-        private void EnableSettings()
-        {
-            cmbPortName.IsEnabled = true;
-            cmbPortBaudRate.IsEnabled = true;
-            cmbPortParity.IsEnabled = true;
-            cmbPortDataBits.IsEnabled = true;
-            cmbPortStopBits.IsEnabled = true;
-            BtnRefresh.IsEnabled = true;
-            TxDataGrid.Visibility = Visibility.Collapsed;
-        }
-
-        private void TxtSend_KeyDown(object sender, Microsoft.UI.Xaml.Input.KeyRoutedEventArgs e)
-        {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                BtnSend_Click(sender, e);
-            }
-        }
 
         private void TgsLed1_Toggled(object sender, RoutedEventArgs e)
         {
