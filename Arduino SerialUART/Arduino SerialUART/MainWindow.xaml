@@ -90,50 +90,7 @@
 				</Grid.ColumnDefinitions>
 
 
-				<Grid x:Name="availableDevicesGrid" Grid.Column="0" BorderThickness="1" BorderBrush="Silver" HorizontalAlignment="Right" CornerRadius="20" Margin="5" Visibility="Collapsed" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="Auto"/>
-						<ColumnDefinition Width="Auto"/>
-					</Grid.ColumnDefinitions>
-
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="Auto"/>
-					</Grid.RowDefinitions>
-
-
-					<TextBlock Grid.Row="0" Grid.ColumnSpan="2" x:Name="pageTitle" Text="UART Sample" Style="{StaticResource HeaderTextBlockStyle}"
-						IsHitTestVisible="false" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,0,0"/>
-
-					<StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="70,10,0,0">
-						<TextBlock Text="Select Device:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-					</StackPanel>
-
-					<StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Margin="70,0,0,0" Width="400">
-						<ListBox x:Name="ConnectDevices" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible" ItemsSource="{x:Bind listOfDevices}" Width="400" Height="164" Background="Gray">
-							<ListBox.ItemTemplate>
-								<DataTemplate>
-									<TextBlock Text="{Binding Name}" />
-								</DataTemplate>
-							</ListBox.ItemTemplate>
-						</ListBox>
-
-
-					</StackPanel>
-
-
-
-				</Grid>
-
-				<Grid x:Name="portSettingGrid" Grid.Column="0" BorderThickness="1" BorderBrush="Silver" HorizontalAlignment="Right" CornerRadius="20" Margin="5" Visibility="Visible">
+			<Grid x:Name="portSettingGrid" Grid.Column="0" BorderThickness="1" BorderBrush="Silver" HorizontalAlignment="Right" CornerRadius="20" Margin="5" Visibility="Visible">
 					<Grid.RowDefinitions >
 						<RowDefinition Height="24" />
 						<RowDefinition />
@@ -189,7 +146,42 @@
 					</ComboBox>
 				</Grid>
 
-				<Grid x:Name="TxDataGrid" Margin="10" Grid.Column="2" BorderThickness="1" BorderBrush="Silver" CornerRadius="20" HorizontalAlignment="Left" Visibility="Collapsed">
+                <Grid x:Name="powerSystemGrid" Grid.Column="0" BorderThickness="1" BorderBrush="Silver" HorizontalAlignment="Right" CornerRadius="20" Margin="5" Visibility="Collapsed" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" x:Name="TbGridTitle1" Text="Power Systeme" Style="{StaticResource HeaderTextBlockStyle}"
+						IsHitTestVisible="false" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,0,0"/>
+
+                    <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="70,10,0,0">
+                        <TextBlock Text="Select Device:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Margin="70,0,0,0" Width="400">
+
+                    </StackPanel>
+
+
+
+                </Grid>
+
+                <Grid x:Name="TxDataGrid" Margin="10" Grid.Column="2" BorderThickness="1" BorderBrush="Silver" CornerRadius="20" HorizontalAlignment="Left" Visibility="Collapsed">
 
 					<Grid.RowDefinitions>
 						<RowDefinition />
