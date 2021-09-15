@@ -41,10 +41,7 @@ namespace Arduino_SerialUART
             BtnSend.IsEnabled = false;
             listOfDevices = new ObservableCollection<DeviceInformation>();
             UpdateDevices();
-
         }
-
-
 
         /// <summary>
         /// ListAvailablePorts
@@ -77,7 +74,7 @@ namespace Arduino_SerialUART
 
                 // DeviceListSource.Source = listOfDevices;
                 BtnConnect.IsEnabled = true;
-                ConnectDevices.SelectedIndex = -1;
+              
             }
             catch (Exception ex)
             {
@@ -127,9 +124,6 @@ namespace Arduino_SerialUART
                     ComboBoxItem cbi_data = (ComboBoxItem)cmbPortDataBits.SelectedItem;
                     ComboBoxItem cbi_stop = (ComboBoxItem)cmbPortStopBits.SelectedItem;
 
-
-
-
                     // Configure serial settings
                     serialPort.WriteTimeout = TimeSpan.FromMilliseconds(1000);
                     serialPort.ReadTimeout = TimeSpan.FromMilliseconds(1000);
@@ -175,7 +169,7 @@ namespace Arduino_SerialUART
 
                     contentDialog.Title = "COM Port unavailable";
                     TxbNoticeDialog.Text = "Could not open the COM port. Most likely it is already in use, has been removed, or is unavailable. Check Status";
-                    contentDialog.XamlRoot = gridRoot.XamlRoot;
+                    contentDialog.XamlRoot = MainGrid   .XamlRoot;
                     _ = await contentDialog.ShowAsync();
                 }
             }
@@ -183,7 +177,7 @@ namespace Arduino_SerialUART
             {
                 contentDialog.Title = "Serial Port Interface";
                 TxbNoticeDialog.Text = "Please select all the COM Serial Port Settings";
-                contentDialog.XamlRoot = gridRoot.XamlRoot;
+                contentDialog.XamlRoot = MainGrid.XamlRoot;
                 _ = await contentDialog.ShowAsync();
             }
         }
@@ -501,6 +495,8 @@ namespace Arduino_SerialUART
             cmbPortStopBits.IsEnabled = false;
             BtnRefresh.IsEnabled = false;
             TxDataGrid.Visibility = Visibility.Visible;
+            powerSystemGrid.Visibility = Visibility.Visible;
+            portSettingGrid.Visibility = Visibility.Collapsed;
         }
         private void EnableSettings()
         {
@@ -511,6 +507,8 @@ namespace Arduino_SerialUART
             cmbPortStopBits.IsEnabled = true;
             BtnRefresh.IsEnabled = true;
             TxDataGrid.Visibility = Visibility.Collapsed;
+            portSettingGrid.Visibility = Visibility.Visible;
+            powerSystemGrid.Visibility = Visibility.Collapsed;
         }
 
 
@@ -744,6 +742,13 @@ namespace Arduino_SerialUART
         }
 
 
+        /// <summary>
+        /// TgbAll_ClickAsync:  Action to switch all the ligth ON or OFF.
+        /// 
+        /// to use add  Click="TgbAll_ClickAsync" to TgbAll
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void TgbAll_ClickAsync(object sender, RoutedEventArgs e)
         {
 
@@ -758,11 +763,13 @@ namespace Arduino_SerialUART
                     {
                         await WriteAsync("X1");
                         TgbAll.Content = "All OFF";
+                        //    ResetLedSwitches();
                     }
                     else
                     {
                         await WriteAsync("X0");
                         TgbAll.Content = "All ON";
+                        //     ResetLedSwitches();
                     }
                 }
                 else
@@ -770,8 +777,6 @@ namespace Arduino_SerialUART
                     status.Text = "Select a LED Switch";
                 }
             }
-
-
             catch (Exception ex)
             {
                 status.Text = TgbAll + ": " + ex.Message;
@@ -786,8 +791,33 @@ namespace Arduino_SerialUART
                 }
             }
 
+            //ResetLedSwitches();
         }
 
-
+        private void ResetLedSwitches()
+        {
+            if (TgbAll.Content.ToString() == "All OFF")
+            {
+                TgsLed1.IsOn  = false;
+                TgsLed2.IsOn  = false;
+                TgsLed3.IsOn  = false;
+                TgsLed4.IsOn  = false;
+                TgsLed5.IsOn  = false;
+                TgsLed6.IsOn  = false;
+                TgsLed7.IsOn  = false;
+                TgsLed8.IsOn = false; 
+                            }
+            else if (TgbAll.Content.ToString() == "All ON")
+            {
+                TgsLed1.IsOn = true;
+                TgsLed2.IsOn = true;
+                TgsLed3.IsOn = true;
+                TgsLed4.IsOn = true;
+                TgsLed5.IsOn = true;
+                TgsLed6.IsOn = true;
+                TgsLed7.IsOn = true;
+                TgsLed8.IsOn = true;
+            }
+        }
     }
 }
